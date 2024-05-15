@@ -5,6 +5,7 @@ import Profile from "@/components/Profile";
 
 export default async function Home() {
   const session = await auth();
+  //should revalidate every 30 seconds
   return (
     <div>
       <form action={actions.signIn}>
