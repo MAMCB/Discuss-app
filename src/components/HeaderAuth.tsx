@@ -1,11 +1,9 @@
 'use client'
-import Link from "next/link";
+
 import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
+  
   NavbarItem,
-  Input,
+ 
   Button,
   Avatar,
   Popover,
@@ -30,7 +28,12 @@ export default function HeaderAuth() {
            </PopoverTrigger>
            <PopoverContent>
              <div className="p-4">
-               <form action={signOut}>
+               <form action={async ()=>{
+                    
+                     await signOut();
+                     window.location.reload();
+                
+               }}>
                  <Button type="submit">Sign Out</Button>
                </form>
              </div>
