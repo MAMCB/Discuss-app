@@ -12,7 +12,7 @@ const Profile = () => {
                     <h1>Profile</h1>
                     <p>{session.data.user.name}</p>
                     <p>{session.data.user.email}</p>
-                    <img src={session.data.user.image!} alt="user image" />
+                    
                     
                 </div>
             )
