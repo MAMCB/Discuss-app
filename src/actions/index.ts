@@ -4,9 +4,17 @@
 
 
 
-export { signIn } from './sign-in';
-export { signOut } from './sign-out';
+import { signIn } from './sign-in';
+import { signOut } from './sign-out';
 
-export { createTopic } from './create-topic';
-export { createPost } from './create-post';
-export { createComment } from './create-comment';
+ import { createTopic } from './create-topic';
+ import { createPost } from './create-post';
+import{ createComment } from './create-comment';
+
+export {
+  signIn,
+  signOut,
+  createTopic,
+  createPost,
+  createComment
+};
