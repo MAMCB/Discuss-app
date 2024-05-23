@@ -1,6 +1,7 @@
 'use server';
 
 import { z } from "zod";
+import {auth} from "@/auth";
 import { CreateTopicFormState } from "@/utils/interfaces";
 const createTopicSchema = z.object({
   name: z
@@ -26,7 +27,14 @@ export async function createTopic (formState: CreateTopicFormState,formData: For
             errors: result.error.flatten().fieldErrors
         };
     }
-   
+   const session =await auth();
+   if(!session || !session.user){
+    return {
+        errors: {
+            _form: ["You must be signed in to create a topic"],
+        },
+    };
+    }
     
     //should revalidate home page
     return {
