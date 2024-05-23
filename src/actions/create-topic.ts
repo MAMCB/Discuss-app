@@ -1,6 +1,6 @@
 'use server';
 
-export async function createTopic (topic:string) {
+export async function createTopic () {
     //should revalidate home page
     
 };
