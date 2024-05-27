@@ -10,3 +10,9 @@ export interface FormButtonProps {
   children: React.ReactNode;
   
 }
+
+export interface TopicShowPageProps {
+  params:{
+    slug:string;
+  }
+}
