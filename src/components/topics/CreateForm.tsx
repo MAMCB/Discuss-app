@@ -7,24 +7,25 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@nextui-org/react";
-import { createTopic } from "@/actions";
+import { CreateFormProps } from "@/utils/interfaces";
 import FormButton from "../common/form-button";
 
 import { useFormState } from "react-dom";
 
-export default function TopicCreateForm() {
-  const [formState, action] = useFormState(createTopic, { errors: {} });
+export default function CreateForm({triggerText,ServerAction}: CreateFormProps) {
+  const [formState, action] = useFormState(ServerAction, { errors: {} });
+
 
   return (
     <>
       <Popover placement="left">
         <PopoverTrigger>
-          <Button color="primary">Create Topic</Button>
+          <Button color="primary">{triggerText}</Button>
         </PopoverTrigger>
         <PopoverContent>
           <form action={action}>
             <div className="flex flex-col gap-4 p-4 w-80">
-              <h3 className="text-lg">Create a topic</h3>
+              <h3 className="text-lg">{triggerText}</h3>
               <Input
                 name="name"
                 label="Name"
@@ -37,7 +38,7 @@ export default function TopicCreateForm() {
                 name="description"
                 label="Description"
                 labelPlacement="outside"
-                placeholder="Describe your topic"
+                placeholder="Description"
                 isInvalid={!!formState.errors.description} //the double negation (!!) is used to convert the value to a boolean
                 errorMessage={formState.errors.description?.join(", ")}
               />
@@ -46,7 +47,7 @@ export default function TopicCreateForm() {
                   {formState.errors._form.join(", ")}
                 </div>
               ) : null}
-             <FormButton>Create Topic</FormButton>
+              <FormButton>{triggerText}</FormButton>
             </div>
           </form>
         </PopoverContent>

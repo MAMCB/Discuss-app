@@ -1,6 +1,7 @@
 
-import TopicCreateForm from "@/components/topics/TopicCreateForm";
+import CreateForm from "@/components/topics/CreateForm";
 import { TopicShowPageProps } from "@/utils/interfaces";
+import { createPost } from "@/actions";
 
 export default function TopicShowPage({ params: { slug } }: TopicShowPageProps) {
    
@@ -11,7 +12,7 @@ export default function TopicShowPage({ params: { slug } }: TopicShowPageProps) 
             <h1 className="text-2xl font-bold mb-2">{slug.charAt(0).toUpperCase()+slug.slice(1)}</h1>
           </div>
           <div className="border shadow py-3 px-2">
-            <TopicCreateForm />
+            <CreateForm ServerAction={createPost} triggerText="Create post" />
           </div>
         </div>
       </>

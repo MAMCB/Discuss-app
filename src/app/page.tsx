@@ -1,6 +1,7 @@
-import TopicCreateForm from "@/components/topics/TopicCreateForm";
+import CreateForm from "@/components/topics/CreateForm";
 import TopicList from "@/components/topics/TopicList";
 import { Divider } from "@nextui-org/react";
+import { createTopic } from "@/actions";
 
 export default  function Home() {
  
@@ -10,7 +11,7 @@ export default  function Home() {
       <h1 className="text-xl m-2">Top posts</h1>
     </div>
     <div className="border shadow py-3 px-2">
-      <TopicCreateForm />
+      <CreateForm ServerAction={createTopic} triggerText="Create topic" />
       <Divider className="my-2" />
       <h3 className="text-lg">Topics</h3>
       <TopicList />

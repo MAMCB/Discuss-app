@@ -1,4 +1,4 @@
-export interface CreateTopicFormState {
+export interface CreateFormState {
   errors: {
     name?: string[];
     description?: string[];
@@ -8,11 +8,18 @@ export interface CreateTopicFormState {
 
 export interface FormButtonProps {
   children: React.ReactNode;
-  
 }
 
 export interface TopicShowPageProps {
-  params:{
-    slug:string;
-  }
+  params: {
+    slug: string;
+  };
+}
+
+export interface CreateFormProps {
+  triggerText: string;
+  ServerAction: (
+    formState: CreateFormState,
+    formData: FormData
+  ) => Promise<CreateFormState>;
 }

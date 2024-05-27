@@ -1,10 +1,10 @@
-'use server';
+"use server";
 
 import { z } from "zod";
-import {auth} from "@/auth";
-import { CreateTopicFormState } from "@/utils/interfaces";
+import { auth } from "@/auth";
+import { CreateFormState } from "@/utils/interfaces";
 import type { Topic } from "@prisma/client";
-import {redirect} from "next/navigation";
+import { redirect } from "next/navigation";
 import { db } from "@/db";
 import paths from "@/utils/pathHelpers";
 import { revalidatePath } from "next/cache";
@@ -20,9 +20,10 @@ const createTopicSchema = z.object({
   description: z.string().min(10),
 });
 
-
-
-export async function createTopic (formState: CreateTopicFormState,formData: FormData):Promise<CreateTopicFormState> {
+export async function createTopic(
+  formState: CreateFormState,
+  formData: FormData
+): Promise<CreateFormState> {
   const result = createTopicSchema.safeParse({
     name: formData.get("name") as string,
     description: formData.get("description") as string,
@@ -65,4 +66,4 @@ export async function createTopic (formState: CreateTopicFormState,formData: For
   revalidatePath(paths.home());
 
   redirect(paths.topicShow(topic.slug));
-};
+}
