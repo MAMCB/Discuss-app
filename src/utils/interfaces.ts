@@ -5,3 +5,8 @@ export interface CreateTopicFormState {
     _form?: string[];
   };
 }
+
+export interface FormButtonProps {
+  children: React.ReactNode;
+  
+}
