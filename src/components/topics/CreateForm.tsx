@@ -12,7 +12,7 @@ import FormButton from "../common/form-button";
 
 import { useFormState } from "react-dom";
 
-export default function CreateForm({triggerText,ServerAction}: CreateFormProps) {
+export default function CreateForm({triggerText,ServerAction,inputPlaceholder="Name",textareaPlaceholder="Description"}: CreateFormProps) {
   const [formState, action] = useFormState(ServerAction, { errors: {} });
 
 
@@ -28,17 +28,17 @@ export default function CreateForm({triggerText,ServerAction}: CreateFormProps) 
               <h3 className="text-lg">{triggerText}</h3>
               <Input
                 name="name"
-                label="Name"
+                label={inputPlaceholder}
                 labelPlacement="outside"
-                placeholder="Name"
+                placeholder={inputPlaceholder}
                 isInvalid={!!formState.errors.name}
                 errorMessage={formState.errors.name?.join(", ")}
               />
               <Textarea
                 name="description"
-                label="Description"
+                label={textareaPlaceholder}
                 labelPlacement="outside"
-                placeholder="Description"
+                placeholder={textareaPlaceholder}
                 isInvalid={!!formState.errors.description} //the double negation (!!) is used to convert the value to a boolean
                 errorMessage={formState.errors.description?.join(", ")}
               />

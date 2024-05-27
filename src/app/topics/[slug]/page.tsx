@@ -12,7 +12,7 @@ export default function TopicShowPage({ params: { slug } }: TopicShowPageProps) 
             <h1 className="text-2xl font-bold mb-2">{slug.charAt(0).toUpperCase()+slug.slice(1)}</h1>
           </div>
           <div className="border shadow py-3 px-2">
-            <CreateForm ServerAction={createPost} triggerText="Create post" />
+            <CreateForm ServerAction={createPost} triggerText="Create post" inputPlaceholder="Title" textareaPlaceholder="Content" />
           </div>
         </div>
       </>
