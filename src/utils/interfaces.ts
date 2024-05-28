@@ -24,4 +24,5 @@ export interface CreateFormProps {
   ) => Promise<CreateFormState>;
   inputPlaceholder?: string;
   textareaPlaceholder?: string;
+  slug?: string;
 }

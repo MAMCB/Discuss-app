@@ -12,7 +12,7 @@ import FormButton from "../common/form-button";
 
 import { useFormState } from "react-dom";
 
-export default function CreateForm({triggerText,ServerAction,inputPlaceholder="Name",textareaPlaceholder="Description"}: CreateFormProps) {
+export default function CreateForm({triggerText,ServerAction,inputPlaceholder="Name",textareaPlaceholder="Description",slug=""}: CreateFormProps) {
   const [formState, action] = useFormState(ServerAction, { errors: {} });
 
 
@@ -33,6 +33,11 @@ export default function CreateForm({triggerText,ServerAction,inputPlaceholder="N
                 placeholder={inputPlaceholder}
                 isInvalid={!!formState.errors.name}
                 errorMessage={formState.errors.name?.join(", ")}
+              />
+              <input
+                name="slug"
+               type="hidden"
+                value={slug}
               />
               <Textarea
                 name="description"
