@@ -1,20 +1,13 @@
-'use server';
+// Note: This is the root file for all actions. It exports all actions as named exports.
 
 
 
 
 
-import { signIn } from './sign-in';
-import { signOut } from './sign-out';
+export { signIn } from './sign-in';
+export { signOut } from './sign-out';
 
- import { createTopic } from './create-topic';
- import { createPost } from './create-post';
-import{ createComment } from './create-comment';
+ export { createTopic } from './create-topic';
+ export { createPost } from './create-post';
+export{ createComment } from './create-comment';
 
-export {
-  signIn,
-  signOut,
-  createTopic,
-  createPost,
-  createComment
-};

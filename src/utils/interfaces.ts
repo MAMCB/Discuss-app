@@ -1,3 +1,5 @@
+import type { Post } from "@prisma/client";
+
 export interface CreateFormState {
   errors: {
     name?: string[];
@@ -25,4 +27,14 @@ export interface CreateFormProps {
   inputPlaceholder?: string;
   textareaPlaceholder?: string;
   slug?: string;
+}
+
+export type PostForListDisplay = Post & {
+  topic: { slug: string };
+  user: { name: string | null };
+  _count: { comments: number };
+};
+
+export interface PostListProps {
+  fetchData: () => Promise<PostForListDisplay[]>;
 }
