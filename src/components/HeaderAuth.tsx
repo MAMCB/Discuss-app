@@ -18,7 +18,7 @@ export default function HeaderAuth() {
      let authContent: React.ReactNode;
      if(session.status === "loading")
         {
-            authContent= null;
+            authContent= <div>Loading...</div>;
         }
      else if (session.data?.user) {
        authContent = (
